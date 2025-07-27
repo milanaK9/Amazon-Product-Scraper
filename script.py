@@ -9,19 +9,17 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment
 from playwright.sync_api import sync_playwright
 
-ip = 0
+limit = 300  # Items limit
 
-#
-# Your ProxyCrawl API ke
+ip = 0
 
 auth_file = r"C:\Users\m4a1\Documents\auth.txt"
 
 # === CONFIG ===
-OPENVPN_PATH = r"C:\Program Files\OpenVPN\bin\openvpn.exe"
-CONFIG_DIR = r"C:\Users\m4a1\Documents\ovpn_udp"
+OPENVPN_PATH = r"Path/To/OpenVPN"
+CONFIG_DIR = r"Path/to/Config/Dir"
 current_index = 0
 vpn_process = None
-
 
 ovpn_files = glob.glob(os.path.join(CONFIG_DIR, "*.ovpn"))
 
@@ -52,7 +50,6 @@ def rotate_ip():
 
 search_request = "Samsung"
 
-limit = 300  # Items limit
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=False)
